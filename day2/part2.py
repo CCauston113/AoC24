@@ -35,6 +35,9 @@ for report in reports:
             # Remove current value
             alt2 = values[:pos_stopped] + (values[pos_stopped + 1:] if pos_stopped < len(values)-1 else [])
             recheck_safe, _ = check_report(alt2)
+            if recheck_safe is False and pos_stopped == 2:
+                alt3 = values[1:]
+                recheck_safe, _ = check_report(alt3)
     if safe is True or recheck_safe is True:
         num_safe += 1
 

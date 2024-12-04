@@ -71,10 +71,8 @@ num_found = 0
 for row in range(1, max_row):
     for col in range(1, max_col):
         if rows[row][col] == 'A':
-            found = (((check_up(col, row) or check_down(col, row)) and
-                     (check_left(col, row) or check_right(col, row))) +
-                     ((check_up_left(col, row) or check_down_right(col, row)) and
-                     (check_down_left(col, row) or check_up_right(col, row))))
+            found = ((check_up_left(col, row) or check_down_right(col, row)) and
+                     (check_down_left(col, row) or check_up_right(col, row)))
             num_found += found
 
 print(num_found)
